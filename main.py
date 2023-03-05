@@ -27,6 +27,8 @@ from telegram.ext import (
     MessageHandler,
     filters,
 )
+from decouple import config
+API_TOKEN = config('API_TOKEN')
 
 BOT_CONFIG = {
     'intents': {
@@ -272,7 +274,7 @@ async def chat(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 def main() -> None:
     """Run the bot."""
     # Create the Application and pass it your bot's token.
-    application = Application.builder().token("6043731866:AAGZonwozW6f1zlpC5gRMjrhN6vXIz2F8QU").build()
+    application = Application.builder().token(API_TOKEN).build()
 
     # Add conversation handler with the states GENDER, PHOTO, LOCATION and BIO
     conv_handler = ConversationHandler(

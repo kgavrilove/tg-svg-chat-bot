@@ -1,3 +1,4 @@
 /venv
 dialogues.txt
 /.idea
+.env
